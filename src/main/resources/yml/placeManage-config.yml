@@ -1,10 +1,10 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: pub-visitors
+  name: pub-placeManage
 spec:
   type: LoadBalancer
   ports:
     - port: 8083
   selector:
-    app: pub-visitors
+    app: pub-placeManage
