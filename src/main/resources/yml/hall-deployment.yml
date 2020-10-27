@@ -1,0 +1,27 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: pub-visitors
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: pub-visitors
+  template:
+    metadata:
+      labels:
+        app: pub-visitors
+    spec:
+      containers:
+        - image: datowl/placeManageSerivce
+          name: pub-visitors
+          ports:
+            - containerPort: 8083
+              name: pub-visitors
+          env:
+            - name: POSTGRES_ENDPOINT
+              value: "jdbc:postgresql://192.168.0.101:5433/"
+            - name: POSTGRES_PASSWORD
+              value: "1322"
+            - name: POSTGRES_USERNAME
+              value: "postgres"
